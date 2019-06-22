@@ -29,8 +29,8 @@ Vue.component('lm-form-item', FormItem);
   <lm-form-item prop="names" :title="title">
   	<input type="text" name="names" id="names">
   </lm-form-item>
-  <lm-form-item prop="key" title="keyTitle" :rules="demoRules">
-    <input type="text" v-model="formModel.key" name="key" id="key">
+  <lm-form-item prop="phone" title="keyTitle" :rules="demoRules">
+    <input type="text" v-model="formModel.phone" name="phone" id="phone">
   </lm-form-item>
   <button type="button" @click="submit()">提交</button>
 </lm-form>
@@ -49,11 +49,11 @@ export default {
       demoRules: {
         rules: {
           required: true,
-          maxlength: 10
+          phone: true
         },
         messages: {
           required: '请输入key',
-          maxlength: '长度不能超过10'
+          phone: '请输入正确的手机号码'
         }
       },
       formModel: {
@@ -107,18 +107,18 @@ function checkPhone(value, param){
 
 # 方法一、
 Vue.use(Form, {
-  "test":{
-  "method": checkPhone,
-  "message":"请填写正确的电话号码"
+  "phone":{
+    "method": checkPhone,
+    "message":"请填写正确的电话号码"
   }
 })
 Vue.use(FormItem)
 
 # 方法二、
 Form.addMethod({
-  "test":{
-  "method": checkPhone,
-  "message":"请填写正确的电话号码"
+  "phone":{
+    "method": checkPhone,
+    "message":"请填写正确的电话号码"
   }, 
 })
 Vue.component('l-form', Form);
