@@ -1,7 +1,5 @@
 # vue_form 一款基于vue 的form 表单校验插件
 
-## 用法
-
 <h3>引入组件并注册使用</h3>
 
 ``` bash
@@ -24,6 +22,7 @@ Vue.component('lm-form-item', FormItem);
 ```
 
 <h3>template中用法</h3>
+
 ``` bash
 
 <lm-form ref="form" :model="formModel" :rules="rules" :messages="messages">
