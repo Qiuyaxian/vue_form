@@ -27,15 +27,15 @@ Vue.component('lm-form-item', FormItem);
 ``` bash
 
 <lm-form ref="form" :model="formModel" :rules="rules" :messages="messages">
-  <lm-form-item prop="names" title="'names'">
+  <lm-form-item prop="names" :title="title">
   	<input type="text" name="names" id="names">
   </lm-form-item>
-  <lm-form-item prop="key" title="'key'" :rules="demoRules">
+  <lm-form-item prop="key" title="keyTitle" :rules="demoRules">
     <input type="text" v-model="formModel.key" name="key" id="key">
   </lm-form-item>
   <button type="button" @click="submit()">提交</button>
-  <p style="text-align: right;"> {{ demoRules }}-ss</p>
 </lm-form>
+
 
 ```
 <h3>js 调用校验</h3>
@@ -45,6 +45,8 @@ Vue.component('lm-form-item', FormItem);
 export default {
   data() {
     return {
+      title: '标题',
+      keyTitle: '关键'
       demoRules: {
         rules: {
           required: true,
