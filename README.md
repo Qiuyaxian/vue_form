@@ -74,7 +74,7 @@ export default {
     } 
   },
   methods: {
-  	/* 使用promise方式 */
+    /* 使用promise方式 */
     submit() {
       this.$refs.form.validate().then((form) => {
         console.log(form)
@@ -82,7 +82,7 @@ export default {
         console.log(err, 'assets/')
       })
     },
-  	/* 使用回调函数的方式 */
+    /* 使用回调函数的方式 */
     submit2() {
       this.$refs.form.validate((form, errors) => {
         console.log(form, errors)
