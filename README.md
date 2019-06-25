@@ -21,6 +21,38 @@ Vue.component('lm-form-item', FormItem);
 
 ```
 
+<h3>新增校验方法</h3>
+
+``` bash
+
+function checkPhone(value, param){
+  var length = value.length;
+  var mobile = /(?:0|86|\+86)?1[3456789]\d{9}/;
+  return this.optional(value) || (length == 11 && mobile.test(value));  
+}
+
+# 方法一、
+Vue.use(Form, {
+  "phone":{
+    "method": checkPhone,
+    "message":"请填写正确的电话号码"
+  }
+})
+Vue.use(FormItem)
+
+# 方法二、
+Form.addMethod({
+  "phone":{
+    "method": checkPhone,
+    "message":"请填写正确的电话号码"
+  }, 
+})
+Vue.component('l-form', Form);
+Vue.component('l-form-item', FormItem);
+
+
+```
+
 <h3>template中用法</h3>
 
 ``` bash
@@ -90,37 +122,5 @@ export default {
     }
   }
 }
-
-```
-
-<h3>新增校验方法</h3>
-
-``` bash
-
-function checkPhone(value, param){
-  var length = value.length;
-  var mobile = /(?:0|86|\+86)?1[3456789]\d{9}/;
-  return this.optional(value) || (length == 11 && mobile.test(value));  
-}
-
-# 方法一、
-Vue.use(Form, {
-  "phone":{
-    "method": checkPhone,
-    "message":"请填写正确的电话号码"
-  }
-})
-Vue.use(FormItem)
-
-# 方法二、
-Form.addMethod({
-  "phone":{
-    "method": checkPhone,
-    "message":"请填写正确的电话号码"
-  }, 
-})
-Vue.component('l-form', Form);
-Vue.component('l-form-item', FormItem);
-
 
 ```
