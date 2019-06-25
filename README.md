@@ -75,19 +75,19 @@ export default {
   },
   methods: {
   	/* 使用promise方式 */
-  	submit() {
+    submit() {
       this.$refs.form.validate().then((form) => {
         console.log(form)
       }).catch(err => {
         console.log(err, 'assets/')
       })
-  	},
+    },
   	/* 使用回调函数的方式 */
-  	submit2() {
+    submit2() {
       this.$refs.form.validate((form, errors) => {
         console.log(form, errors)
       })
-  	}
+    }
   }
 }
 
